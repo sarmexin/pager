@@ -1,6 +1,5 @@
 package com.sarmexin.postman.config;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -42,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/message/read_all").hasRole("ADMIN")
+                .mvcMatchers("/application/save").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

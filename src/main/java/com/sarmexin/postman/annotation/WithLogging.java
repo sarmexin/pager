@@ -2,11 +2,14 @@ package com.sarmexin.postman.annotation;
 
 import java.lang.annotation.*;
 
-@Target(ElementType.METHOD)
+/**
+ * @author Sergey Gavrilov
+ */
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface WithLogging {
 
-    String service() default "неизвестный сервис";
+    String service();
 
 }
 

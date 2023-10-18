@@ -1,7 +1,7 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.domain.UserData;
-import com.sarmexin.postman.repo.UserRepository;
+import com.sarmexin.postman.domain.user.UserData;
+import com.sarmexin.postman.repository.UserRepository;
 import com.sarmexin.postman.services.UserServices;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

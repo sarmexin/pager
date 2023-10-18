@@ -1,16 +1,19 @@
 package com.sarmexin.postman.mapper;
 
-import com.sarmexin.postman.domain.MessageData;
-import com.sarmexin.postman.dto.MessageDto;
+import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.dto.application.ApplicationDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Sergey Gavrilov
+ */
 @Slf4j
 @Component
-public class MessageDtoToData {
+public class ApplicationDtoToData {
 
-    public MessageData map(MessageDto source) {
-        MessageData messageData = new MessageData();
+    public ApplicationData map(ApplicationDto source) {
+        ApplicationData messageData = new ApplicationData();
         messageData.setId(source.getId());
         messageData.setText(source.getText());
         messageData.setAuthorId(source.getAuthorId());

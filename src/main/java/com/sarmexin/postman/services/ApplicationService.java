@@ -1,14 +1,14 @@
 package com.sarmexin.postman.services;
 
-import com.sarmexin.postman.domain.MessageData;
-import com.sarmexin.postman.dto.MessageDto;
+import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.dto.application.ApplicationDto;
 
 import java.util.List;
 
 /**
  * @author Sergey Gavrilov
  */
-public interface MessageService {
+public interface ApplicationService {
 
     /**
      * Сохранение сообщения
@@ -16,7 +16,7 @@ public interface MessageService {
      * @param messageDto объект message для передачи
      * @return сущность message
      */
-    MessageData saveMessage(MessageDto messageDto);
+    ApplicationData saveApplication(ApplicationDto messageDto);
 
     /**
      * Получение сообщения по id
@@ -24,14 +24,14 @@ public interface MessageService {
      * @param id идентификатор сообщения в БД
      * @return объект message для передачи
      */
-    MessageDto readMessage(Long id);
+    ApplicationDto readApplication(Long id);
 
     /**
      * Получение всех сообщений
      *
      * @return список сообщений
      */
-    List<MessageDto> readAllMessage();
+    List<ApplicationDto> readAllApplications();
 
-    boolean updateMessage(Long id);
+    boolean updateApplication(Long id);
 }
