@@ -1,5 +1,6 @@
-package com.sarmexin.postman.domain;
+package com.sarmexin.postman.domain.user;
 
+import com.sarmexin.postman.dto.Address;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,5 +17,5 @@ public class UserData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
+//    private Address address;
 }

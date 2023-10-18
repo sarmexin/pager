@@ -1,8 +1,8 @@
 package com.sarmexin.postman.controllers;
 
-import com.sarmexin.postman.domain.MessageData;
-import com.sarmexin.postman.dto.MessageDto;
-import com.sarmexin.postman.services.impl.MessageServiceImpl;
+import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.dto.application.ApplicationDto;
+import com.sarmexin.postman.services.impl.ApplicationServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -16,12 +16,12 @@ import java.util.List;
  * @author Sergey Gavrilov
  */
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/application")
 @AllArgsConstructor
 @Slf4j
 public class MessageController {
 
-    private final MessageServiceImpl messageService;
+    private final ApplicationServiceImpl applicationService;
 
     /**
      * Записать сообщение
@@ -30,20 +30,21 @@ public class MessageController {
      * @return ок
      */
     @PostMapping("/save")
-    public String  saveMessage(@RequestBody MessageDto messageDto) {
-        MessageData messageData = messageService.saveMessage(messageDto);
+    public String saveApplication(@RequestBody ApplicationDto messageDto) {
+        ApplicationData messageData = applicationService.saveApplication(messageDto);
 
         return "OK";
     }
 
     /**
      * Получить сообщение из БД
+     *
      * @param id id сообщения
      * @return ResponseEntity MessageDto
      */
-     @GetMapping("/read")
-    public ResponseEntity<MessageDto> readMessage(@RequestParam Long id) {
-        MessageDto messageDto = messageService.readMessage(id);
+    @GetMapping("/read")
+    public ResponseEntity<ApplicationDto> readApplications(@RequestParam Long id) {
+        ApplicationDto messageDto = applicationService.readApplication(id);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("test", "testValue");
@@ -52,8 +53,8 @@ public class MessageController {
     }
 
     @GetMapping("/read_all")
-    public ResponseEntity<List<MessageDto>> readAllMessage() {
-        List<MessageDto> messageDtoList = messageService.readAllMessage();
+    public ResponseEntity<List<ApplicationDto>> readAllApplications() {
+        List<ApplicationDto> messageDtoList = applicationService.readAllApplications();
         log.info("отправление всех сообщений");
 
         return new ResponseEntity<>(messageDtoList, HttpStatus.OK);

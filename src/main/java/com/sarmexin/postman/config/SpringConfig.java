@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @author Sergey Gavrilov
  */
 @Configuration
-@EnableJpaRepositories("com.sarmexin.postman.repo")
+@EnableJpaRepositories("com.sarmexin.postman.repository")
 public class SpringConfig {
 
 
