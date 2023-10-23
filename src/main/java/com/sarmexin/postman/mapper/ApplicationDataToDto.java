@@ -1,6 +1,6 @@
 package com.sarmexin.postman.mapper;
 
-import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.domain.application.Application;
 import com.sarmexin.postman.dto.application.ApplicationDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationDataToDto {
 
-    public ApplicationDto map(ApplicationData source) {
+    public ApplicationDto map(Application source) {
         ApplicationDto messageDto = new ApplicationDto();
         messageDto.setId(source.getId());
         messageDto.setText(source.getText());

@@ -1,6 +1,6 @@
 package com.sarmexin.postman.controllers;
 
-import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.domain.application.Application;
 import com.sarmexin.postman.dto.application.ApplicationDto;
 import com.sarmexin.postman.services.impl.ApplicationServiceImpl;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class MessageController {
      */
     @PostMapping("/save")
     public String saveApplication(@RequestBody ApplicationDto messageDto) {
-        ApplicationData messageData = applicationService.saveApplication(messageDto);
+        Application messageData = applicationService.saveApplication(messageDto);
 
         return "OK";
     }
