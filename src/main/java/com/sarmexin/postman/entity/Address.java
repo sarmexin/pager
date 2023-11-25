@@ -1,7 +1,5 @@
-package com.sarmexin.postman.domain;
+package com.sarmexin.postman.entity;
 
-import com.sarmexin.postman.domain.application.Application;
-import com.sarmexin.postman.domain.user.User;
 import lombok.Data;
 
 import javax.persistence.*;

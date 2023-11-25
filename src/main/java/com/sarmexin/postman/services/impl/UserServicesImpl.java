@@ -1,6 +1,6 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.domain.user.User;
+import com.sarmexin.postman.entity.User;
 import com.sarmexin.postman.repository.UserRepository;
 import com.sarmexin.postman.services.UserServices;
 import lombok.AllArgsConstructor;

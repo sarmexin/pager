@@ -1,6 +1,5 @@
-package com.sarmexin.postman.domain.application;
+package com.sarmexin.postman.entity;
 
-import com.sarmexin.postman.domain.user.User;
 import com.sarmexin.postman.enums.ApplicationStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -12,10 +12,16 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * @author Sergey Gavrilov
+ */
 @EnableWebSecurity
 @EnableGlobalAuthentication
 // TODO: переделать, так ниже Deprecated
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    public static final String ADMIN = "ADMIN";
+    public static final String USER = "USER";
 
     @Bean
     UserDetailsService authentication() {
@@ -23,13 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails sergey = User.builder()
                 .username("sergey")
                 .password(pwEncoder.encode("322132"))
-                .roles("ADMIN")
+                .roles(ADMIN)
                 .build();
 
         UserDetails natalia = User.builder()
                 .username("natalia")
                 .password(pwEncoder.encode("322132"))
-                .roles("USER")
+                .roles(USER)
                 .build();
 
         return new InMemoryUserDetailsManager(sergey, natalia);
@@ -41,7 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/application/save").hasRole("ADMIN")
+                .mvcMatchers("/application/save").hasRole(ADMIN)
+                .mvcMatchers("/application/read").hasRole(ADMIN)
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

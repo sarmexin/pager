@@ -1,7 +1,7 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.domain.application.Application;
-import com.sarmexin.postman.dto.application.ApplicationDto;
+import com.sarmexin.postman.entity.Application;
+import com.sarmexin.postman.dto.ApplicationDto;
 import com.sarmexin.postman.mapper.ApplicationDataToDto;
 import com.sarmexin.postman.mapper.ApplicationDtoToData;
 import com.sarmexin.postman.repository.ApplicationRepository;
