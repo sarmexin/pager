@@ -1,6 +1,6 @@
 package com.sarmexin.postman.repository;
 
-import com.sarmexin.postman.domain.application.ApplicationData;
+import com.sarmexin.postman.entity.Application;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * @author Sergey Gavrilov
  */
 @Repository
-public interface ApplicationRepository extends JpaRepository<ApplicationData, Long> {
+public interface ApplicationRepository extends JpaRepository<Application, Long> {
 
 }

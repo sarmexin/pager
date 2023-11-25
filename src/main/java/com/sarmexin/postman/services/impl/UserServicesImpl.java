@@ -1,6 +1,6 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.domain.user.UserData;
+import com.sarmexin.postman.entity.User;
 import com.sarmexin.postman.repository.UserRepository;
 import com.sarmexin.postman.services.UserServices;
 import lombok.AllArgsConstructor;
@@ -22,22 +22,22 @@ public class UserServicesImpl implements UserServices {
 
     private final UserRepository repository;
 
-    public List<UserData> findAll() {
+    public List<User> findAll() {
         return repository.findAll();
     }
 
-    public UserData findOne(long id) {
-        Optional<UserData> foundUser = repository.findById(id);
+    public User findOne(long id) {
+        Optional<User> foundUser = repository.findById(id);
         return foundUser.orElseGet(null);
     }
 
     @Transactional
-    public void save(UserData user) {
+    public void save(User user) {
         repository.save(user);
     }
 
     @Transactional
-    public void update(long id, UserData updateUser) {
+    public void update(long id, User updateUser) {
         updateUser.setId(id);
         repository.save(updateUser);
     }

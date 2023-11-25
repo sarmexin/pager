@@ -1,8 +1,7 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.annotation.WithLogging;
-import com.sarmexin.postman.domain.application.ApplicationData;
-import com.sarmexin.postman.dto.application.ApplicationDto;
+import com.sarmexin.postman.entity.Application;
+import com.sarmexin.postman.dto.ApplicationDto;
 import com.sarmexin.postman.mapper.ApplicationDataToDto;
 import com.sarmexin.postman.mapper.ApplicationDtoToData;
 import com.sarmexin.postman.repository.ApplicationRepository;
@@ -33,9 +32,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     @Transactional
-    public ApplicationData saveApplication(ApplicationDto messageDto) {
-        var messageData = converterDtoToData.map(messageDto);
-        ApplicationData fromTheBaseMessageData = repository.save(messageData);
+    public Application saveApplication(ApplicationDto messageDto) {
+        var message = converterDtoToData.map(messageDto);
+        Application fromTheBaseMessageData = repository.save(message);
         log.info("В БД сохранено сообщение с id={}", fromTheBaseMessageData.getId());
 
         return fromTheBaseMessageData;
@@ -43,7 +42,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public ApplicationDto readApplication(Long messageId) {
-        Optional<ApplicationData> messageData = repository.findById(messageId);
+        Optional<Application> messageData = repository.findById(messageId);
 
         return messageData
                 .map(data -> convertDataToDto.map(data))
@@ -53,9 +52,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
 //    @WithLogging(service = "readAllApplications")
     public List<ApplicationDto> readAllApplications() {
-        List<ApplicationData> messageDataList = repository.findAll();
+        List<Application> messageDataList = repository.findAll();
         List<ApplicationDto> messageDtoList = new ArrayList<>();
-        for (ApplicationData el : messageDataList) {
+        for (Application el : messageDataList) {
             messageDtoList.add(convertDataToDto.map(el));
         }
 
