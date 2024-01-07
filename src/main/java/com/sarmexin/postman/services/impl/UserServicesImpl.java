@@ -44,6 +44,7 @@ public class UserServicesImpl implements UserServices {
 
     @Transactional
     public void delete(long id) {
+        System.out.println("test");
         repository.deleteById(id);
     }
 
