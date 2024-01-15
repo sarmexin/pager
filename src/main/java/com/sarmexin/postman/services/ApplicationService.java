@@ -1,7 +1,6 @@
 package com.sarmexin.postman.services;
 
-import com.sarmexin.postman.domain.application.Application;
-import com.sarmexin.postman.dto.application.ApplicationDto;
+import com.sarmexin.postman.dto.ApplicationDto;
 
 import java.util.List;
 
@@ -14,9 +13,8 @@ public interface ApplicationService {
      * Сохранение сообщения
      *
      * @param messageDto объект message для передачи
-     * @return сущность message
      */
-    Application saveApplication(ApplicationDto messageDto);
+    void saveApplication(ApplicationDto messageDto);
 
     /**
      * Получение сообщения по id

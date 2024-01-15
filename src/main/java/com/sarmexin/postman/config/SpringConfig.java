@@ -10,5 +10,4 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.sarmexin.postman.repository")
 public class SpringConfig {
 
-
 }

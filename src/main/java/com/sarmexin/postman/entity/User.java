@@ -1,8 +1,9 @@
-package com.sarmexin.postman.domain.user;
+package com.sarmexin.postman.entity;
 
-import com.sarmexin.postman.domain.Address;
-import com.sarmexin.postman.domain.application.Application;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,7 +12,10 @@ import java.util.Set;
  * @author Sergey Gavrilov
  */
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -25,6 +29,7 @@ public class User {
     private Address address;
 
     @OneToMany(mappedBy = "user")
+    @ToString.Exclude
     private Set<Application> applications;
 
 }

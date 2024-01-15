@@ -2,6 +2,9 @@ package com.sarmexin.postman.dto;
 
 import lombok.Data;
 
+/**
+ * @author Sergey Gavrilov
+ */
 @Data
 public class Address {
 

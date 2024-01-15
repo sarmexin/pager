@@ -1,7 +1,7 @@
 package com.sarmexin.postman.services.impl;
 
-import com.sarmexin.postman.domain.application.Application;
-import com.sarmexin.postman.dto.application.ApplicationDto;
+import com.sarmexin.postman.dto.ApplicationDto;
+import com.sarmexin.postman.entity.Application;
 import com.sarmexin.postman.mapper.ApplicationDataToDto;
 import com.sarmexin.postman.mapper.ApplicationDtoToData;
 import com.sarmexin.postman.repository.ApplicationRepository;
@@ -32,12 +32,11 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     @Transactional
-    public Application saveApplication(ApplicationDto messageDto) {
+    public void saveApplication(ApplicationDto messageDto) {
         var message = converterDtoToData.map(messageDto);
         Application fromTheBaseMessageData = repository.save(message);
         log.info("В БД сохранено сообщение с id={}", fromTheBaseMessageData.getId());
 
-        return fromTheBaseMessageData;
     }
 
     @Override
@@ -50,7 +49,6 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-//    @WithLogging(service = "readAllApplications")
     public List<ApplicationDto> readAllApplications() {
         List<Application> messageDataList = repository.findAll();
         List<ApplicationDto> messageDtoList = new ArrayList<>();

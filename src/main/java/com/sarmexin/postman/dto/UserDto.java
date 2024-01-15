@@ -1,4 +1,4 @@
-package com.sarmexin.postman.dto.user;
+package com.sarmexin.postman.dto;
 
 import com.sarmexin.postman.dto.Address;
 import lombok.Data;

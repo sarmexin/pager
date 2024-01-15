@@ -1,8 +1,9 @@
-package com.sarmexin.postman.domain;
+package com.sarmexin.postman.entity;
 
-import com.sarmexin.postman.domain.application.Application;
-import com.sarmexin.postman.domain.user.User;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,7 +11,10 @@ import javax.persistence.*;
  * @author Sergey Gavrilov
  */
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "address")
 public class Address {
 
