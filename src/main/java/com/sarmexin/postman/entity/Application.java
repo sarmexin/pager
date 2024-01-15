@@ -1,8 +1,7 @@
 package com.sarmexin.postman.entity;
 
 import com.sarmexin.postman.enums.ApplicationStatus;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,7 +11,10 @@ import java.time.LocalDateTime;
  * @author Sergey Gavrilov
  */
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "application")
 @NoArgsConstructor
 public class Application {
