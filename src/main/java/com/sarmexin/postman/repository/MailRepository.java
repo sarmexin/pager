@@ -1,13 +1,9 @@
 package com.sarmexin.postman.repository;
 
-import com.sarmexin.postman.entity.Application;
+import com.sarmexin.postman.object.entity.Mail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author Sergey Gavrilov
- */
 @Repository
-public interface ApplicationRepository extends JpaRepository<Application, Long> {
-
+public interface MailRepository extends JpaRepository<Mail, Long> {
 }
