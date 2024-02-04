@@ -9,14 +9,23 @@ import com.sarmexin.postman.repository.MailRepository;
 import com.sarmexin.postman.services.MailService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
+import java.text.Format;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @AllArgsConstructor
 @Service
 public class MailServiceImpl implements MailService {
+
+    public static final String TIME_PATTERN = "YYYY:MM:dd-HH:mm:ss";
 
     private final MailRepository mailRepository;
 
@@ -26,11 +35,10 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public Boolean saveMail(MailDto mailDto) {
-
         Mail mail = mailDtoConverter.convert(mailDto);
-
+        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern(TIME_PATTERN));
+        mail.setTimeCreation(time);
         mailRepository.save(mail);
-
         log.info("В БД записали " + mail);
 
         return true;
@@ -39,9 +47,10 @@ public class MailServiceImpl implements MailService {
     @Override
     public List<MailDto> getAll() {
 
-        List<Mail> mail = mailRepository.findAll();
-        MailDto mailDto = mailConverter.convert(mail);
-        return null;
+        return mailRepository.findAll()
+                .stream()
+                .map(mailConverter::convert)
+                .collect(Collectors.toList());
     }
 
 }

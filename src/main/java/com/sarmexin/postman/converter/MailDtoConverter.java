@@ -10,7 +10,7 @@ public class MailDtoConverter {
     public Mail convert(MailDto mailDto) {
         Mail mail = new Mail();
         mail.setId(mailDto.getId());
-        mail.setText(mail.getText());
+        mail.setText(mailDto.getText());
 
         return mail;
     }

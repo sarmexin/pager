@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Getter
@@ -14,15 +15,20 @@ import java.util.Objects;
 @ToString
 @Entity
 @RequiredArgsConstructor
-//@Table(name = "mail")
+@Table(name = "mail")
 public class Mail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "id")
+    @Column(name = "id")
     private Long id;
 
-//    @Column(name = "text")
+    @NotBlank
+    @Column(name = "timeCreation")
+    private String timeCreation;
+
+    @NotBlank
+    @Column(name = "text")
     private String text;
 
     @Override

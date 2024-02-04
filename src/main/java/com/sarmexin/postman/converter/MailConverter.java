@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 public class MailConverter {
 
     public MailDto convert(Mail mail) {
-        MailDto mailDto = new MailDto();
-        mailDto.setId(mail.getId());
-        mailDto.setText(mail.getText());
 
-        return mailDto;
+        return MailDto.builder()
+                .id(mail.getId())
+                .timeCreation(mail.getTimeCreation())
+                .text(mail.getText())
+                .build();
     }
 
 }
